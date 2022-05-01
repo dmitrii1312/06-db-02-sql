@@ -38,6 +38,7 @@ create user "test-admin-user" with encrypted password 'testpass';
 \c test_db
 create table orders (id serial primary key, Наименование varchar, Цена integer);
 create table clients (id serial primary key, "Фамилия" varchar, "Страна проживания" varchar, заказ integer, foreign key (заказ) references  orders(id));
+create index country on clients("Страна проживания");
 ```
 - предоставьте привилегии на все операции пользователю test-admin-user на таблицы БД test_db
 ```
